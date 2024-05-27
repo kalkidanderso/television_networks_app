@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  prisma-react:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: prisma-react
+    ports:
+      - 80:80
+    restart: always
+    networks:
+      - shared_network
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: television_networks_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: IOikxd5KQQCewLEicVBD
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    driver: bridge

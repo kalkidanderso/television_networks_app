@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Channel {
+  id         Int      @id @default(autoincrement()) @map("id")
+  name       String   @map("name")
+  status     Boolean  @map("status")
+  created_at DateTime @default(now()) @map("created_at")
+
+  @@map("channels") // Map to the existing "channels" table
+}
+model Movie {
+  id          Int      @id @default(autoincrement()) @map("id")
+  title       String   @map("title")
+  duration    String   @map("duration")
+  description String   @map("description")
+  channelId   Int      @map("channelid")
+  typeId      Int      @map("typeid")
+  categoryId  Int      @map("categoryid")
+  videoUrl    String   @map("videourl")
+  status      Boolean  @map("status")
+  created_at  DateTime @default(now()) @map("created_at")
+
+  category    Category @relation(fields: [categoryId], references: [id]) // Define relation to Category
+  type      Type     @relation(fields: [typeId], references: [id])
+
+  
+  @@map("movies")
+}
+
+model Category {
+  id         Int      @id @default(autoincrement()) @map("id")
+  name       String   @map("name")
+  created_at DateTime @default(now()) @map("created_at")
+
+  movies     Movie[]  // Define relation to movies
+
+  @@map("categories")
+}
+
+
+model User {
+  id         Int      @id @default(autoincrement()) @map("id")
+  username   String   @map("username")
+  email      String   @map("email")
+  password   String   @map("password")
+  created_at DateTime @default(now()) @map("created_at")
+
+  @@map("users") // Map to the existing "users" table
+}
+
+
+
+model Type {
+  id         Int      @id @default(autoincrement()) @map("id")
+  name       String   @map("name")
+  created_at DateTime @default(now()) @map("created_at")
+  movies    Movie[]
+
+  @@map("types") // Map to the existing "types" table
+}
