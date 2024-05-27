@@ -54,7 +54,7 @@ const DashboardComponent = () => {
       backgroundColor: chartColors,
       hoverBackgroundColor: chartColors,
       borderWidth: 1,
-      cutout: '70%', // Adjust the thickness here
+      cutout: '70%',
     }],
   });
 
@@ -65,7 +65,7 @@ const DashboardComponent = () => {
       backgroundColor: chartColors,
       hoverBackgroundColor: chartColors,
       borderWidth: 1,
-      cutout: '70%', // Adjust the thickness here
+      cutout: '70%',
     }],
   });
   const [usersGrowth, setUsersGrowth] = useState('');
@@ -138,7 +138,6 @@ const DashboardComponent = () => {
       setChannelsGrowth(channelsPercentageGrowth);
     } catch (error) {
       console.error('Error fetching growth data:', error);
-      // Handle error gracefully, such as displaying an error message to the user
     }
   };
   
@@ -255,7 +254,7 @@ const DashboardComponent = () => {
         flexGrow: 1,
         p: 3,
         borderRadius: '10px',
-        boxShadow: '0 16px 32px rgba(0, 0, 0, 0.3)', // Increased shadow intensity
+        boxShadow: '0 16px 32px rgba(0, 0, 0, 0.3)',
         fontFamily: 'Roboto, sans-serif'
       }}
     >

@@ -8,7 +8,7 @@ import ExportIcon from '@mui/icons-material/IosShare';
 import AddIcon from '@mui/icons-material/Add';
 import AddComponent from '../components/AddModal';
 
-// Import channel service functions
+// Importing channel service functions
 import {
   fetchChannels,
   createChannel,
@@ -27,7 +27,7 @@ const Channel = () => {
   const [viewChannel, setViewChannel] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  // Fetch channels on component mount
+  // Fetching channels on component mount
   useEffect(() => {
     fetchAllChannels();
   }, []);

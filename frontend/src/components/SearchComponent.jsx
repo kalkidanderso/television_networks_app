@@ -33,7 +33,6 @@ const SearchComponent = ({
   };
 
   const exportToCSV = () => {
-    // Logic to export data to CSV format
   };
 
   return (

@@ -22,7 +22,7 @@ services:
     environment:
       POSTGRES_DB: television_networks_app
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: IOikxd5KQQCewLEicVBD
+      POSTGRES_PASSWORD: *****
     networks:
       - shared_network
 

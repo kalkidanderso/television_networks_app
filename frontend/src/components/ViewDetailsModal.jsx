@@ -4,7 +4,7 @@ import { Modal, Box, Typography } from '@mui/material';
 const ViewDetailsModal = ({ open, onClose, entity }) => {
   if (!entity) return null;
 
-  const labelWidth = 100; // Adjust this value as needed
+  const labelWidth = 100; 
 
   return (
     <Modal open={open} onClose={onClose}>
